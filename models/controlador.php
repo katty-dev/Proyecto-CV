@@ -1,7 +1,9 @@
 <?php
+session_start();
 include_once "conexion.php";
-//crear en sus bases una tabla usuario con id, usuario y clave
-$conexion = Conexion::conectar();
+
+$conexionObj = new Conexion();
+$conexion = $conexionObj->conectar();
 
 $usuario = $_POST["usuario"];
 $clave = $_POST["password"];
@@ -17,10 +19,10 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-    echo "El usuario existe en la base de datos.";
+    $_SESSION['usuario'] = $usuario; 
+    header("Location: ./../index.php");  
 } else {
     echo "Usuario o contraseña incorrectos.";
 }
-
-
 ?>
+
