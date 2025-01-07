@@ -14,11 +14,11 @@
         margin: 0;
         padding: 0;
         line-height: 1.6;
-        background-color: #f4f4f9;
+        background-color:rgb(255, 255, 255);
         color: #333;
     }
     header {
-        background-color: #2c3e50;
+        background-color:rgb(63, 0, 0);
         color: #fff;
         padding: 10px 20px;
         text-align: center;
