@@ -7,10 +7,10 @@ $filename = "reporteEstudiante.jrxml";
 
 $config= [
     'driver' => 'mysql',
-    'host' => 'localhost',
-    'user' => 'root',
-    'pass' => '',
-    'name' => 'cuarto'
+    'host' => 'bhlut4j4kuhxsivd4hrp-mysql.services.clever-cloud.com',
+    'user' => 'uvhyhfvxsavrkktw',
+    'pass' => '2w5zMYBaRxgZ5aeDVXTw',
+    'name' => 'bhlut4j4kuhxsivd4hrp'
 ];
 
 $report = new PHPJasperXML();

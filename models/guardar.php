@@ -8,13 +8,13 @@ $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
-$curId = $_POST['curId'];
 
-$sqlInsert = "INSERT INTO estudiantes (estCedula, estNombre, estApellido, estTelefono, estDireccion, curId) VALUES (?, ?, ?, ?, ?, ?)";
+
+$sqlInsert = "INSERT INTO estudiantes (estCedula, estNombre, estApellido, estTelefono, estDireccion) VALUES (?, ?, ?, ?, ?)";
 $stmt = $con->prepare($sqlInsert);
 
 if ($stmt) {
-    $stmt->bind_param("ssssss", $cedula, $nombre, $apellido, $telefono, $direccion, $curId);
+    $stmt->bind_param("sssss", $cedula, $nombre, $apellido, $telefono, $direccion);
     if ($stmt->execute()) {
         echo json_encode("Se guardó correctamente");
     } else {
