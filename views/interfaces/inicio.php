@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/inicio.css">
+
     <title>Inicio</title>
 </head>
 
@@ -13,11 +16,13 @@
         margin: 0;
         padding: 0;
         line-height: 1.6;
-        background-color: #f4f4f9;
+
+        background-color:rgb(255, 255, 255);
         color: #333;
     }
     header {
-        background-color: #2c3e50;
+        background-color:rgb(63, 0, 0);
+
         color: #fff;
         padding: 10px 20px;
         text-align: center;
