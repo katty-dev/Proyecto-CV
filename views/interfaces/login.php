@@ -12,6 +12,15 @@
     <form action="../../models/controlador.php" method="post">
         <h2>Iniciar Sesión</h2>
 
+        <!-- Mostrar el mensaje de error si existe -->
+        <?php
+        session_start();
+        if (isset($_SESSION['error'])) {
+            echo "<p style='color: red;'>" . $_SESSION['error'] . "</p>";
+            unset($_SESSION['error']); // Eliminar el mensaje de error después de mostrarlo
+        }
+        ?>
+
         <label for="usuario">Usuario</label>
         <input type="text" name="usuario" id="usuario" required> <br>
         <label for="password">Contraseña</label>

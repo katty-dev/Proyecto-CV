@@ -22,7 +22,9 @@ if ($result->num_rows > 0) {
     $_SESSION['usuario'] = $usuario; 
     header("Location: ./../index.php");  
 } else {
-    echo "Usuario o contraseña incorrectos.";
+   
+    $_SESSION['error'] = "Usuario o contraseña incorrectos. Intente nuevamente.";
+    header("Location: ../views/interfaces/login.php"); 
 }
 ?>
 
