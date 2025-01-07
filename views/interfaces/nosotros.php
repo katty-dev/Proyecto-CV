@@ -5,140 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Estudiantes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-img-top {
+            width: 100%; /* Ocupa todo el ancho del contenedor */
+            height: 200px; /* Altura fija */
+            object-fit: cover; /* Ajusta la imagen manteniendo sus proporciones */
+            object-position: center; /* Centra la imagen en caso de recorte */
+        }
+    </style>
 </head>
 <body>
 
 <div class="container mt-5">
-    <h2 class="mb-4">Registro de Estudiantes</h2>
+    <h2 class="mb-4">Más Acerca de Nosotros</h2>
 
-    <form id="formularioEstudiante">
-        <div class="mb-3">
-            <label for="cedula" class="form-label">Cédula</label>
-            <input type="text" class="form-control form-control-sm" id="cedula" name="cedula" required>
-        </div>
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" required>
-        </div>
-        <div class="mb-3">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control form-control-sm" id="apellido" name="apellido" required>
-        </div>
-        <div class="mb-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" required>
-        </div>
-        <div class="mb-3">
-            <label for="direccion" class="form-label">Dirección</label>
-            <input type="text" class="form-control form-control-sm" id="direccion" name="direccion" required>
-        </div>
-        <input type="hidden" id="accion" name="accion" value="editar">
-        <button type="submit" class="btn btn-primary">Guardar Estudiante</button>
-        <button type="button" class="btn btn-primary" id="guardarEdicion">Guardar Edición</button>
-    </form>
-
-    <div id="tablaEstudiantes" class="mt-5"></div>
+    <div class="row" id="estudiantesContainer">
+        <!-- Los estudiantes se agregarán dinámicamente aquí -->
+    </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-     
-        function cargarTablaEstudiantes() {
-            $.ajax({
-                url: 'models/acceder.php',
-                type: 'GET',
-                dataType: 'json',
-                success: function(response){
-                    if(response !== "No hay estudiantes"){
-                        var table = '<table class="table table-dark"><thead><tr><th>Cédula</th><th>Nombre</th><th>Apellido</th><th>Teléfono</th><th>Dirección</th><th>Curso</th><th>Acciones</th></tr></thead><tbody>';
-                        $.each(response, function(i, item) {
-                            table += '<tr>';
-                            table += '<td>' + item.estCedula + '</td>';
-                            table += '<td>' + item.estNombre + '</td>';
-                            table += '<td>' + item.estApellido + '</td>';
-                            table += '<td>' + item.estTelefono + '</td>';
-                            table += '<td>' + item.estDireccion + '</td>';
-                            table += '<td>' + item.Nombre + '</td>';
-                            table += '<td><button class="btn btn-danger btn-sm" onclick="eliminarEstudiante(\'' + item.estCedula + '\')">Eliminar</button> <button class="btn btn-warning btn-sm" onclick="editarEstudiante(\'' + item.estCedula + '\', \'' + item.estNombre + '\', \'' + item.estApellido + '\', \'' + item.estTelefono + '\', \'' + item.estDireccion + '\', \'' + item.curId + '\')">Editar</button></td>';
-                            table += '</tr>';
-                        });
-                        table += '</tbody></table>';
-                        $('#tablaEstudiantes').html(table);
-                    } else {
-                        $('#tablaEstudiantes').html('<p>No hay estudiantes</p>');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
-            });
+    // Array de estudiantes con los datos
+    const estudiantes = [
+        {
+            nombre: "Melanie Katiuska Silva Barrionuevo",
+            direccion: "Ambatillo",
+            telefono: "0993530208",
+            correo: "msilva8471@uta.edu.ec",
+            foto: "imagenes/Melanie.jpeg"
+        },
+        {
+            nombre: "Eduardo Sebastian Cortez Abril",
+            direccion: "Ambato",
+            telefono: "0962878011",
+            correo: "ecortez7302@uta.edu.ec",
+            foto: "imagenes/Eduardo.jpeg"
+        },
+        {
+            nombre: "Josué Sebastián Guevara Tierras",
+            direccion: "Ambato",
+            telefono: "0963134445",
+            correo: "jguevara8928@uta.edu.ec",
+            foto: "imagenes/Josue.jpeg"
+        },
+        {
+            nombre: "Heidi Lizbeth Villavicencio Manobanda",
+            direccion: "Ambato",
+            telefono: "0993611507",
+            correo: "hvillavicencio8210@uta.edu.ec",
+            foto: "https://via.placeholder.com/150"
+        },
+        {
+            nombre: "Daniel Alexander Luisa Calapiña",
+            direccion: "Ambato",
+            telefono: "0978823301",
+            correo: "dluisa4347@uta.edu.ec",
+            foto: "imagenes/Daniel.jpeg"
+        },
+        {
+            nombre: "Maria Rodríguez",
+            direccion: "Avenida Sur, Ambato",
+            telefono: "(03) 678 9012",
+            correo: "maria.rodriguez@univ.edu.ec",
+            foto: "https://via.placeholder.com/150"
         }
+    ];
 
-        cargarTablaEstudiantes();
+    // Función para agregar estudiantes en tarjetas
+    function cargarEstudiantes() {
+        const container = document.querySelector("#estudiantesContainer");
+        estudiantes.forEach(estudiante => {
+            const divCard = document.createElement("div");
+            divCard.classList.add("col-md-4", "mb-4");
 
-        $('#formularioEstudiante').submit(function(event){
-            event.preventDefault(); 
-            var formData = $(this).serialize(); 
-            $.ajax({
-                url: 'models/guardar.php',
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-                success: function(response){
-                    cargarTablaEstudiantes();
-                    $('#formularioEstudiante').trigger("reset");
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
-            });
-        });
-
-        $('#guardarEdicion').click(function(event){
-            event.preventDefault(); 
-            var formData = $('#formularioEstudiante').serialize(); 
-            $.ajax({
-                url: 'models/editar.php',
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-                success: function(response){
-                    cargarTablaEstudiantes();
-                    $('#formularioEstudiante').trigger("reset");
-                },
-                error: function(xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
-            });
-        });
-    });
-
-    function eliminarEstudiante(cedula) {
-        $.ajax({
-            url: 'models/borrar.php',
-            type: 'POST',
-            data: {cedula: cedula},
-            dataType: 'json',
-            success: function(response){
-                alert(response); 
-                cargarTablaEstudiantes();
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-            }
+            divCard.innerHTML = `
+                <div class="card">
+                    <img src="${estudiante.foto}" alt="Foto de ${estudiante.nombre}" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">${estudiante.nombre}</h5>
+                        <p class="card-text"><strong>Dirección:</strong> ${estudiante.direccion}</p>
+                        <p class="card-text"><strong>Teléfono:</strong> ${estudiante.telefono}</p>
+                        <p class="card-text"><strong>Correo:</strong> ${estudiante.correo}</p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(divCard);
         });
     }
 
-    function editarEstudiante(cedula, nombre, apellido, telefono, direccion, curId) {
-        $('#cedula').val(cedula);
-        $('#nombre').val(nombre);
-        $('#apellido').val(apellido);
-        $('#telefono').val(telefono);
-        $('#direccion').val(direccion);
-        $('#curId').val(curId);
-        $('#accion').val('editar');
-    }
+    // Llamar a la función para cargar los estudiantes al cargar la página
+    window.onload = cargarEstudiantes;
 </script>
 
 </body>
