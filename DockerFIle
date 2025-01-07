@@ -1,11 +1,11 @@
-# Usar una imagen oficial de PHP
+
 FROM php:8.0-apache
 
-# Copiar todos los archivos de tu proyecto a la imagen del contenedor
+
 COPY . /var/www/html/
 
-# Establecer el puerto donde PHP se ejecutará
+
 EXPOSE 80
 
-# Iniciar el servidor Apache con PHP
+
 CMD ["apache2-foreground"]
