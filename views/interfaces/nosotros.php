@@ -53,7 +53,7 @@
             direccion: "Ambato",
             telefono: "0993611507",
             correo: "hvillavicencio8210@uta.edu.ec",
-            foto: "https://via.placeholder.com/150"
+            foto: "imagenes/Heidi.jpg"
         },
         {
             nombre: "Daniel Alexander Luisa Calapiña",
@@ -63,11 +63,11 @@
             foto: "imagenes/Daniel.jpeg"
         },
         {
-            nombre: "Maria Rodríguez",
-            direccion: "Avenida Sur, Ambato",
-            telefono: "(03) 678 9012",
-            correo: "maria.rodriguez@univ.edu.ec",
-            foto: "https://via.placeholder.com/150"
+            nombre: "Eduardo Israel Punina Ortiz",
+            direccion: "Ambato",
+            telefono: "0960517622",
+            correo: "epunina6299@uta.edu.ec",
+            foto: "imagenes/EduardoP.jpeg"
         }
     ];
 
