@@ -5,8 +5,8 @@ class MvcController{
     }
 public function enlacesPaginasController(){
     if(isset($_GET["action"])){
-        $enlacesController=$_GET["action"];
-    }else{
+        $enlacesController = $_GET["action"];
+        }else{
         $enlacesController="inicio.php";
     }
     $respuesta=EnlacesPaginas::enlacesPaginasModel($enlacesController);
