@@ -9,7 +9,7 @@ class conexion{
         if(!$conn ){
             echo("Error en la conexion".mysqli_connect_error());
         }else{
-            echo("conectado")
+            echo("conectado");
             return $conn;
         }
      
