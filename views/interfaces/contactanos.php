@@ -5,78 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicación y Contacto - Universidad Técnica de Ambato</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-
-        h1,
-        h2 {
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .map-container,
-        .form-container {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input,
-        textarea,
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/contactanos.css">
 </head>
 
 <body>
@@ -88,7 +17,7 @@
             <!-- Formulario a la derecha -->
             <div class="form-container">
                 <h2>Contáctanos</h2>
-                <form action="https://example.com/contact" method="POST">
+                <form action="https://formsubmit.co/edupunina12@gmail.com" method="POST">
                     <label for="nombre">Nombre completo:</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
 
@@ -101,8 +30,10 @@
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5"
                         required></textarea>
-
                     <button type="submit">Enviar mensaje</button>
+
+                    <input type="hidden" name="_next" value=""><!--  Colocar en value a donde seu quiere redirigir -->
+                    <input type="hidden" name="_captcha" value="false">
                 </form>
             </div>
             <!-- Mapa a la izquierda -->

@@ -1,29 +1,44 @@
-body{
-    background: white ;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: rgb(255, 255, 255);
+    color: #333;
 }
 
-header{
+header {
     position: relative;
     margin: auto;
     text-align: center;
     padding: 5px;
 }
 
-nav{
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+nav {
     position: relative;
     margin: auto;
     width: 100%;
     height: auto;
     background: rgb(110, 7, 7);
 }
-nav ul{
+
+nav ul {
     display: flex;
     position: relative;
-    margin: auto;
     width: 50%;
     text-align: none;
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 10px 0;
 }
-nav ul li{
+
+nav ul li {
     display: inline-block;
     margin: auto;
     width: 25%;
@@ -31,27 +46,39 @@ nav ul li{
     list-style: none;
     color: white;
 }
-nav ul li a{
+
+nav ul li a {
     color: white;
     text-decoration: none;
 }
 
-section{
+section {
     position: relative;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
     padding: 5px;
 }
-footer{
+
+
+footer {
     background: rgb(110, 7, 7);
     color: white;
     text-align: center;
     font-size: large;
 }
 
-.parrafos{
+.parrafos {
     color: blue;
     text-align: center;
 }
-.titulos{
+
+.titulos {
     font-size: 25;
 }
 
@@ -76,10 +103,12 @@ footer{
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
 /* Estilo para los botones de inicio y cierre de sesión */
 .boton-sesion {
     display: inline-block;
-    background-color: rgb(110, 7, 7); /* Color rojo */
+    background-color: rgb(110, 7, 7);
+    /* Color rojo */
     color: white;
     padding: 10px 20px;
     text-align: center;
@@ -90,10 +119,13 @@ footer{
 }
 
 .boton-sesion:hover {
-    background-color: #8b0000; /* Rojo más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Le da un efecto de aumento */
+    background-color: #8b0000;
+    /* Rojo más oscuro al pasar el mouse */
+    transform: scale(1.05);
+    /* Le da un efecto de aumento */
 }
 
 .boton-sesion:active {
-    background-color: #5c0202; /* Rojo aún más oscuro cuando se hace clic */
+    background-color: #5c0202;
+    /* Rojo aún más oscuro cuando se hace clic */
 }

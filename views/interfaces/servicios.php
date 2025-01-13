@@ -14,11 +14,12 @@ if (session_status() == PHP_SESSION_NONE) {
     <link rel="stylesheet" type="text/css" href="jquery-easyui-1.10.19/themes/color.css">
     <script type="text/javascript" src="jquery-easyui-1.10.19/jquery.min.js"></script>
     <script type="text/javascript" src="jquery-easyui-1.10.19/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" href="./css/servicios.css">
 </head>
 <body>
     <h2>Estudiantes UTA</h2>
 
-    <table id="dg" title="Estudiantes" class="easyui-datagrid" style="width:700px;height:250px"
+    <table id="dg" title="Estudiantes" class="easyui-datagrid" style="width:800px;height:auto"
             url="models/acceder.php"
             toolbar="#toolbar" pagination="true"
             rownumbers="true" fitColumns="true" singleSelect="true">
