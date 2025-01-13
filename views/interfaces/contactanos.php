@@ -32,7 +32,8 @@
                         required></textarea>
                     <button type="submit">Enviar mensaje</button>
 
-                    <input type="hidden" name="_next" value=""><!--  Colocar en value a donde seu quiere redirigir -->
+                    <input type="hidden" name="_next"
+                        value="https://reportesvisual.onrender.com/index.php?action=contactanos"><!--  Colocar en value a donde seu quiere redirigir -->
                     <input type="hidden" name="_captcha" value="false">
                 </form>
             </div>
